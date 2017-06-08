@@ -30,6 +30,9 @@ public:
         sort(nums.begin(), nums.end());
         vector<vector<int>> answer;
         vector<int> answer1;
+        if(nums.size()<3){
+            return answer;
+        }
         for (int i = 0; i < nums.size(); i++) {
             if (i > 0 && nums[i] == nums[i - 1]);
             else {

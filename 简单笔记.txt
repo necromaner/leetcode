@@ -1,0 +1,1 @@
+sort(nums.begin(), nums.end());//排序（头，尾，排序方式）

@@ -33,7 +33,56 @@ using namespace std;
 class Solution {
 public:
     int romanToInt(string s) {
+        int answer = 0;
+        vector<int> roman{1, 5, 10, 50, 100, 500, 1000};
 
+        for (int i = 0; i <= s.size(); i++) {
+            if (s[i] == 'I') {
+                if (s[i + 1] == 'I' || s[i + 1] == 0) {//1
+                    answer += 1;
+                } else if (s[i + 1] == 'V') {//5
+                    answer += 4;
+                } else if (s[i + 1] == 'X') {//10
+                    answer += 9;
+                }
+            } else if (s[i] == 'V') {
+                if (s[i - 1] != 'I') {
+                    answer += 5;
+                }
+            }
+            if (s[i] == 'X') {
+                if (s[i + 1] == 'L') {//50
+                    answer += 40;
+                } else if (s[i + 1] == 'C') {//100
+                    answer += 90;
+                } else if (s[i - 1] != 'I') {
+                    answer += 10;
+                }
+            } else if (s[i] == 'L') {
+                if (s[i - 1] != 'X') {
+                    answer += 50;
+                }
+            }
+            if (s[i] == 'C') {
+                if (s[i + 1] == 'D') {//50
+                    answer += 400;
+                } else if (s[i + 1] == 'M') {//100
+                    answer += 900;
+                } else if (s[i - 1] != 'X') {
+                    answer += 100;
+                }
+            } else if (s[i] == 'D') {
+                if (s[i - 1] != 'C') {
+                    answer += 500;
+                }
+            }
+            if (s[i] == 'M') {
+                if (s[i - 1] != 'C') {
+                    answer += 1000;
+                }
+            }
+        }
+        return answer;
     }
 };
 
@@ -56,16 +105,24 @@ int romanToInt(string s) {
             }
         }
         if (s[i] == 'X') {
-            if (s[i - 1] !='I') {
+            if (s[i + 1] == 'L') {//50
+                answer += 40;
+            } else if (s[i + 1] == 'C') {//100
+                answer += 90;
+            } else if (s[i - 1] != 'I') {
                 answer += 10;
             }
         } else if (s[i] == 'L') {
-            if (s[i - 1] != 'I') {
+            if (s[i - 1] != 'X') {
                 answer += 50;
             }
         }
         if (s[i] == 'C') {
-            if (s[i - 1] != 'I') {
+            if (s[i + 1] == 'D') {//50
+                answer += 400;
+            } else if (s[i + 1] == 'M') {//100
+                answer += 900;
+            } else if (s[i - 1] != 'X') {
                 answer += 100;
             }
         } else if (s[i] == 'D') {
@@ -73,8 +130,12 @@ int romanToInt(string s) {
                 answer += 500;
             }
         }
+        if (s[i] == 'M') {
+            if (s[i - 1] != 'C') {
+                answer += 1000;
+            }
+        }
     }
-
     return answer;
 }
 

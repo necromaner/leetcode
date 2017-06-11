@@ -34,8 +34,6 @@ class Solution {
 public:
     int romanToInt(string s) {
         int answer = 0;
-        vector<int> roman{1, 5, 10, 50, 100, 500, 1000};
-
         for (int i = 0; i <= s.size(); i++) {
             if (s[i] == 'I') {
                 if (s[i + 1] == 'I' || s[i + 1] == 0) {//1

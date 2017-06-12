@@ -11,12 +11,6 @@ Subscribe to see which companies asked this question.
 
  */
 
-/*Submission Result: Wrong Answer
-Input:[1]
-Output:[]
-Expected:[1]
-Run Code Status: Finished
- */
 
 
 #include <iostream>
@@ -26,22 +20,22 @@ using namespace std;
 class Solution {
 public:
     int removeDuplicates(vector<int> &nums) {
-        int bb = 0;
+        int bb = 0;                     //重复出现的个数
         sort(nums.begin(), nums.end());//排序（头，尾，排序方式）
-        if (nums.size() == 1) {
-            return 0;
-        } else {
-            for (int i = 1; i < nums.size(); i++) {
-                if (nums[i] == nums[i - 1]) {
-                    ++bb;
-                } else
-                    nums[i - bb] = nums[i];
-            }
-            nums.erase(nums.begin() + bb, nums.end());
-            return 0;
+        if (nums.size() <= 1) {
+            return nums.size();
         }
+        for (int i = 1; i < nums.size(); i++) {
+            if (nums[i] == nums[i - 1]) {
+                ++bb;
+            } else
+                nums[i - bb] = nums[i];
+        }
+        nums.erase(nums.end() - bb, nums.end());  //删除后面 重复出现的个数
+        return nums.size();;
     }
 };
+
 
 int main() {
     Solution solution;
@@ -54,7 +48,6 @@ int main() {
         cout<<i<<" ";
     }
     cout<<endl;
-
     solution.removeDuplicates(a);
     cout<<"size   : "<<a.size()<<endl<<"Output : ";
     for(auto i:a){

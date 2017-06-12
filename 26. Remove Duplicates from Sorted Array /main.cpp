@@ -27,11 +27,11 @@ class Solution {
 public:
     int removeDuplicates(vector<int> &nums) {
         int bb = 0;
+        sort(nums.begin(), nums.end());//排序（头，尾，排序方式）
         if (nums.size() == 1) {
             return 0;
         } else {
-            sort(nums.begin(), nums.end());//排序（头，尾，排序方式）
-            for (int i = 1; i <= nums.size(); i++) {
+            for (int i = 1; i < nums.size(); i++) {
                 if (nums[i] == nums[i - 1]) {
                     ++bb;
                 } else
@@ -42,30 +42,21 @@ public:
         }
     }
 };
-int removeDuplicates(vector<int> &nums) {
-    int bb = 0;
-    if (nums.size() == 1) {
-        return 0;
-    } else {
-        sort(nums.begin(), nums.end());//排序（头，尾，排序方式）
-        for (int i = 1; i <= nums.size(); i++) {
-            if (nums[i] == nums[i - 1]) {
-                ++bb;
-            } else
-                nums[i - bb] = nums[i];
-        }
-        nums.erase(nums.begin() + bb, nums.end());
-        return 0;
-    }
-}
+
 int main() {
+    Solution solution;
     vector<int> aa={1,6,1,2,6,4,3,1,7,8,9,6,4,3,1,1,1,0};//0 1 1 1 1 1 1 2 3 3 4 4 6 6 6 7 8 9
     vector<int> ab={2};
 
     vector<int> a=aa;
-    cout<<a.size()<<endl;
-    removeDuplicates(a);
-    cout<<a.size()<<endl;
+    cout<<"size   : "<<a.size()<<endl<<"Input  : ";
+    for(auto i:a){
+        cout<<i<<" ";
+    }
+    cout<<endl;
+
+    solution.removeDuplicates(a);
+    cout<<"size   : "<<a.size()<<endl<<"Output : ";
     for(auto i:a){
         cout<<i<<" ";
     }

@@ -31,11 +31,11 @@ public:
 };
 /****************************/
 
-vector<int> twoSum(vector<int>& nums, int target);
 int main() {
+    Solution solution;
     vector<int> Given_nums ={2, 7, 11, 15};
     int target = 9;
-    for(auto i:twoSum(Given_nums,target)){
+    for(auto i:solution.twoSum(Given_nums,target)){
         cout<<i<<" ";
     }
     cout<<endl;

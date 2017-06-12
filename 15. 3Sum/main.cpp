@@ -27,10 +27,10 @@ using namespace std;
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int> &nums) {
-        sort(nums.begin(), nums.end());
+        sort(nums.begin(), nums.end());//排序（头，尾，排序方式）
         vector<vector<int>> answer;
         vector<int> answer1;
-        if(nums.size()<3){
+        if (nums.size() < 3) {
             return answer;
         }
         for (int i = 0; i < nums.size(); i++) {
@@ -55,39 +55,13 @@ public:
         return answer;
     }
 };
-vector<vector<int>> threeSum(vector<int> &nums) {
-    sort(nums.begin(), nums.end());//排序（头，尾，排序方式）
-    vector<vector<int>> answer;
-    vector<int> answer1;
-    if (nums.size() < 3) {
-        return answer;
-    }
-    for (int i = 0; i < nums.size(); i++) {
-        if (i > 0 && nums[i] == nums[i - 1]);
-        else {
-            for (int j = i + 1; j < nums.size(); j++) {
-                if (j > i + 1 && nums[j] == nums[j - 1]);
-                else {
-                    for (int k = j + 1; k < nums.size(); k++) {
-                        if (k > j + 1 && nums[k] == nums[k - 1]);
-                        else {
-                            if (nums[i] + nums[j] + nums[k] == 0) {
-                                answer1 = {nums[i], nums[j], nums[k]};
-                                answer.push_back(answer1);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return answer;
-}
+
 
 int main() {
+    Solution solution;
     vector<int> S = {-1, 0, 1, 2, -1, -4};//-4,-1,-1,0,1,2
     vector<int> aa={0,0,0,0};
-    for (auto i:threeSum(S)) {
+    for (auto i:solution.threeSum(S)) {
         for (auto j:i) {
             cout << j << " ";
         }

@@ -34,16 +34,18 @@ public:
     int reverse(int x) {
         int answer = 0;
         long long answerl = 0;
-        if (x > 2147483647 || x < -2147483647) {
+        if (x > 2147483647 || x < -2147483647) {            //判断输入是否超出int范围
+            // if (abs(x)>2147483647){
             return 0;
-        } else if (abs(x) >= 10) {
+        } else if (abs(x) >= 10) {                          //判断是否初始绝对值小于10
             for (int bb = abs(x); bb > 0; bb /= 10) {
                 answerl = answerl * 10 + bb % 10;
             }
         } else {
             return x;
         }
-        if (answerl > 2147483647 || answerl < -2147483647)
+        if (answerl > 2147483647 || answerl < -2147483647)  //判断输出是否超出int范围
+            // if (abs(answerl)>2147483647){
             return 0;
         else if (x > 0)
             return answer = answerl;
@@ -51,32 +53,13 @@ public:
             return answer = -answerl;
     }
 };
-int reverse(int x) {
-    int answer = 0;
-    long long answerl = 0;
-    if (x > 2147483647 || x < -2147483647) {            //判断输入是否超出int范围
-        // if (abs(x)>2147483647){
-        return 0;
-    } else if (abs(x) >= 10) {                          //判断是否初始绝对值小于10
-        for (int bb = abs(x); bb > 0; bb /= 10) {
-            answerl = answerl * 10 + bb % 10;
-        }
-    } else {
-        return x;
-    }
-    if (answerl > 2147483647 || answerl < -2147483647)  //判断输出是否超出int范围
-        // if (abs(answerl)>2147483647){
-        return 0;
-    else if (x > 0)
-        return answer = answerl;
-    else
-        return answer = -answerl;
-}
+
 int main() {
+    Solution solution;
     int aa;
     cout<<"Enter :";
     cin>>aa;
     cout<<"former    :"<<aa<<endl;
-    cout<<"inversion :"<<reverse(aa)<<endl;
+    cout<<"inversion :"<<solution.reverse(aa)<<endl;
     return 0;
 }

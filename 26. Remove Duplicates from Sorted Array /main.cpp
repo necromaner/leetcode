@@ -22,9 +22,6 @@ public:
     int removeDuplicates(vector<int> &nums) {
         int bb = 0;                     //重复出现的个数
         sort(nums.begin(), nums.end());//排序（头，尾，排序方式）
-        if (nums.size() <= 1) {
-            return nums.size();
-        }
         for (int i = 1; i < nums.size(); i++) {
             if (nums[i] == nums[i - 1]) {
                 ++bb;

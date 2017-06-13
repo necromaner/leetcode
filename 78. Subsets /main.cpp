@@ -54,7 +54,7 @@ public:
     vector<vector<int>> subsets(vector<int> &nums) {//nums.begin()+k
         vector<vector<int>> answer;
         vector<int> answer1;
-        for (int k = 0; k <= nums.size(); k++) {            //控制输出个数 1
+        for (int k = 0; k <= nums.size(); k++) {            //控制输出个数
             subsets1(answer, answer1, nums, k, 0);
         }
         return answer;

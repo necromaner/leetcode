@@ -24,12 +24,22 @@ public:
     int minimumTotal(vector<vector<int>>& triangle) {
         int answer=triangle[0][0];
         int aa=triangle[0][0];
-        for(int i=1;i<triangle.size();i++){
-
+        if(triangle.size()<0){
+            return answer;
         }
-        return aa;
+        for(int i=1;i<triangle.size();i++){
+            minimumTotal1(triangle,answer,i,0);
+        }
+        return answer;
     }
-
+    void minimumTotal1(vector<vector<int>>& triangle,int &answer,int i,int j){
+        if(triangle[i][j]>triangle[i][j+1]){
+            answer+=triangle[i][j+1];
+        }else if(triangle[i][j]<triangle[i][j+1]){
+            answer+=triangle[i][j];
+            j++;
+        }
+    }
 
 };
 int main() {

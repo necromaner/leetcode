@@ -6,29 +6,5 @@
 27. Remove Element 	//完成
 283. Move Zeroes 	//完成
 34. Search for a Range 	//完成
-78. Subsets 		//
-
-class Solution {
-public:
-    vector<vector<int> > subsets(vector<int> &nums) {
-        vector<int> tmp;
-        vector<vector<int> > result;
-        sort(nums.begin(), nums.end());
-        for (int i = 0; i <= nums.size(); i++) {
-            subsetsHelper(result, tmp, nums, i, 0);
-        }
-        return result;
-    }
-
-    void subsetsHelper(vector<vector<int> > &result, vector<int> &tmp, vector<int> &nums, int k, int start) {
-        if (k == 0) {
-            result.push_back(tmp);
-            return;
-        }
-        for (int i = start; i < nums.size(); i++) {
-            tmp.push_back(nums[i]);
-            subsetsHelper(result, tmp, nums, k - 1, i + 1);
-            tmp.pop_back();
-        }
-    }
-};
+78. Subsets 		//完成
+120. Triangle 		//

@@ -64,49 +64,4 @@ int main() {
     string s = "([]";
     cout << "input : " << s << endl;
     cout << "isValid : " << boolalpha << solution.isValid(s);
-/*
-    string s1 = s;
-    int count = 0;
-    while (s1.size() > 1) {
-        for (unsigned i = 0; i < s1.size();) {
-            int count1 = 0;
-            if (s1[i] == '(') {
-                if (s1[i + 1] == ')') {
-                    s1.erase(i, 2);
-                    count++;
-                    count1++;
-                    cout << s1 << " " << count << " " << count1 << endl;
-                }
-            }
-            if (s1[i] == '{') {
-                if (s1[i + 1] == '}') {
-                    s1.erase(i, 2);
-                    count++;
-                    count1++;
-                    cout << s1 << " " << count << " " << count1 << endl;
-                }
-            }
-            if (s1[i] == '[') {
-                if (s1[i + 1] == ']') {
-                    s1.erase(i, 2);
-                    count++;
-                    count1++;
-                    cout << s1 << " " << count << " " << count1 << endl;
-                }
-            }
-            if (count1 == 0) {
-                i++;
-            }
-        }
-        if (count == 0) {
-            cout << "error" << endl;
-            return 0;
-        }
-        count = 0;
-    }
-    if (s1.size() == 0) {
-        cout << "yes" << endl;
-        return 0;
-    }
-    cout<<"error !"<<endl;*/
 }

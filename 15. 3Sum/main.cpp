@@ -33,6 +33,7 @@ public:
         if (nums.size() < 3) {
             return answer;
         }
+        /*
         for (int i = 0; i < nums.size(); i++) {
             if (i > 0 && nums[i] == nums[i - 1]);
             else {
@@ -51,8 +52,40 @@ public:
                     }
                 }
             }
+        }*/
+        for (int i = 0; i < nums.size(); i++) {
+            int j = i + 1;
+            int k = nums.size() - 1;
+            cout<<j<<" "<<k<<endl;
+            while (j != k) {
+                if (nums[j] == nums[i] + nums[k]) {
+                    answer1 = {nums[i], nums[j], nums[k]};
+                    answer.push_back(answer1);
+                } else if (nums[j] < nums[i] + nums[k]) {//0 -1 2
+                    cout<<"k--"<<j<<" "<<k<<endl;
+                    k--;
+                } else {
+                    cout<<"j++"<<j<<" "<<k<<endl;
+                    j++;
+                }
+            }
         }
         return answer;
+    }
+    void threeSum1(vector<int> &nums,vector<vector<int>> &answer,vector<int> &answer1,int i,int j,int k){
+        for(int m=0;m<nums.size()-3;m++){
+            while(j!=k){
+                if(nums[j]==nums[i]+ nums[k]){
+                    answer1 = {nums[i], nums[j], nums[k]};
+                    answer.push_back(answer1);
+                }else if(nums[j]<nums[i]+ nums[k]){//0 -1 2
+                    k--;
+                }else{
+                    j++;
+                }
+            }
+        }
+
     }
 };
 

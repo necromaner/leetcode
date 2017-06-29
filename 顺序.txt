@@ -11,3 +11,12 @@
 38. Count and Say 	//完成 6.13
 9. Palindrome Number 	//完成 6.13
 20. Valid Parentheses 	//完成 6.14
+22. Generate Parentheses//
+
+((() ))
+
+(()  ()) 
+(()  )()
+
+()   (())
+()   ()()
